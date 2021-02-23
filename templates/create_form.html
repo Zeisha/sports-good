@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action= '' method = "POST">
+  {% with messages  = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <p>Good Id  <input type = "integer" name = "good_id" /></p>
+  <p>name <input type = "text" name = "name" /></p>
+  <p>sport <input type = "text" name = "sport" /></p>
+  <p>price <input type = "integer" name = "price" /></p>
+  <p><input type = "submit" value = "Submit" /></p>
+</form>
+</body>
+</html>

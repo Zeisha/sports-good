@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>updateform</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action= '' method = "POST">
+  {% with messages  = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <p>name <input type = "text" name = "name" placeholder="{{good.name}}"/></p>
+  <p>sport <input type = "text" name = "sport"  placeholder="{{good.sport}}" /></p>
+  <p>price <input type = "integer" name = "price"  placeholder="{{good.price}}" /></p>
+  <p><input type = "submit" value = "Submit" /></p>
+</form>
+</body>
+</html>
+</body>
+</html>
