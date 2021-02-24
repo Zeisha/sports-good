@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{good.name + " " if good else "New "}}Good</title>
+</head>
+<body>
+  <a href="/">return</a>
+  <form method="POST">
+    <p>
+      <label for="good_id">Good ID:</label>
+      <input type="integer" name="good_id" id="good_id"  value="{{good.good_id if good else ''}}"/>
+    </p>
+    <p>
+      <label for="name">Good Name:</label>
+      <input type="text" name="name" id="name" value="{{good.name if good else ''}}"/>
+    </p>
+    <p>
+      <label for="sport">Sport:</label>
+      <input type="text" name="sport" id="sport" value="{{good.sport if good else ''}}"/>
+    </p>
+    <p>
+      <label for="price">Price:</label>
+      <input type="text" name="price" id="price" value="{{good.price if good else ''}}" />
+    </p>
+
+    <p>
+      <label for="delete">Delete</label>
+      <input type="checkbox" name="delete" id="delete"/>
+    </p>
+
+    <input type="submit" value="save" />
+  </form>
+</body>
+</html>
