@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>list of goods</title>
+    <title>Sports Shop</title>
 </head>
 <body>
-{% for good in goods %}
-<h3>{{good}}</h3><hr>
-{% endfor %}
+    <h2>Sports Shop</h2>
+    <a href="goods/new">Add</a><br></br>
+    {% for good in goods %}
+    <a href="/goods/{{good.good_id}}">{{good}}<hr></a>
+    {% endfor %}
 </body>
 </html>

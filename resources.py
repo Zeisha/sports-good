@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 
-class SportsGoodInventory(db.Model):
+class SportsGood(db.Model):
     __tablename__ = 'sports_goods'
 
     good_id = db.Column(db.Integer, primary_key=True)
