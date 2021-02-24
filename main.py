@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, flash
+from flask import Flask, request, render_template, redirect
 from resources import db, SportsGood
 
 app = Flask(__name__)
