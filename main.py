@@ -22,20 +22,23 @@ def retrieve_all_list():
 
 @app.route('/goods/new', methods=['GET', 'POST'])
 def create_good():
-    good = None
+    try:
+        good = None
 
-    if request.method == 'POST':
-        good_id = request.form['good_id']
-        name = request.form['name']
-        sport = request.form['sport']
-        price = request.form['price']
-        good = SportsGood(good_id=good_id, name=name, price=price, sport=sport)
-        db.session.add(good)
-        db.session.commit()
-        return redirect('/')
-        # TODO: Tell user that the todo was saved successfully or not
+        if request.method == 'POST':
+            good_id = request.form['good_id']
+            name = request.form['name']
+            sport = request.form['sport']
+            price = request.form['price']
+            good = SportsGood(good_id=good_id, name=name, price=price, sport=sport)
+            db.session.add(good)
+            db.session.commit()
+            return redirect('/')
+            # TODO: Tell user that the todo was saved successfully or not
 
-    return render_template('good_form.html', good=good)
+        return render_template('good_form.html', good=good)
+    except(Exception ):
+        return "USer provided details voilates Database rule  . cannot proceed .Database UNIQUE constraint failed"
 
 
 @app.route('/goods/<int:good_id>', methods=['GET', 'POST'])
@@ -56,7 +59,12 @@ def get_good(good_id):
     return render_template('good_form.html', good=good)
 
 
-@app.errorhandler(404)
+@app.errorhandler(500)
 def page_not_found(error):
-    return 'This page does not exist', 404
+    return 'Duplicate Entry', 500
+
+if __name__ == '__main__':
+    import xmlrunner
+    runner = xmlrunner.XMLTestRunner(output='test-reports')
+    app.main(testRunner=runner)
 
